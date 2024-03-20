@@ -1,14 +1,18 @@
-import './App.css'
-import  SingUp  from "./components/singup/SingUp";
-function App() {
-  fetch('https://api.disneyapi.dev/character')
-  .then(response => response.json())
-  .then(data => console.log(data))
-  .catch(error => console.error(error))
-  return (
+// App.jsx
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import './App.css';
+import Home from './components/home/Home';
+import Detalle from './components/detallepelicula/Detalle';
 
-    <SingUp/>
-  )
+function App() {
+  return (
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/detalle/:id" element={<Detalle />} />
+      </Routes>
+    </Router>
+  );
 }
 
-export default App
+export default App;
