@@ -9,7 +9,6 @@ function Hero() {
                 <div className="col-6 d-flex flex-column justify-content-center gap-2">
                     <h1>Bienvenido a tu mundo disney</h1>
                     <p>Descubre las mejores películas</p>
-                    <a className="btn btn-dark w-25" href="#">Ver más</a>
                 </div>
                 <div className="col-6">
                     <img src={disneyLogo} className="w-100" alt="Hero img"/>
@@ -17,7 +16,7 @@ function Hero() {
             </div>
       </div>
     </div>
-  );
+  )
 }
 
 export default Hero;

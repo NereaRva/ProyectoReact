@@ -1,8 +1,8 @@
-// Home.jsx
 import { useState, useEffect } from 'react';
 import Api from '../data/Api';
 import Cards from './Cards';
 import Hero from './Hero';
+import Header from '../../header/Header';
 
 function Home() {
   const [characters, setCharacters] = useState([]);
@@ -19,6 +19,7 @@ function Home() {
 
   return (
     <>
+    <Header/>
       <Hero />
       <Cards characters={characters} />
     </>

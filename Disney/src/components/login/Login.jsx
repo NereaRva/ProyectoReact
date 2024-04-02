@@ -1,27 +1,30 @@
-import { useState } from 'react';
+import { useState,} from 'react'
+import { Link } from 'react-router-dom'
 
 const Login = () => {
-    const storedUsers = localStorage.getItem('users');
+    const storedUsers = localStorage.getItem('users')
     const initialUsers = storedUsers ? JSON.parse(storedUsers) : [];
 
-    const [users, setUsers] = useState(initialUsers);
+    const [users, setUsers] = useState(initialUsers)
     const [formData, setFormData] = useState({
         email: '',
         password: '',
-    });
+    })
+    const [loggedIn, setLoggedIn] = useState(false)
 
     const handleChange = (event) => {
-        const { name, value } = event.target;
-        setFormData({ ...formData, [name]: value });
+        const { name, value } = event.target
+        setFormData({ ...formData, [name]: value })
     };
 
     const handleSubmit = (event) => {
-        event.preventDefault();
-        const user = users.find(u => u.email === formData.email && u.password === formData.password);
+        event.preventDefault()
+        const user = users.find(u => u.email === formData.email && u.password === formData.password)
         if (user) {
-            console.log('ok');
+            console.log('ok')
+            setLoggedIn(true)
         } else {
-            console.log('error');
+            console.log('error')
         }
     };
 
@@ -41,8 +44,15 @@ const Login = () => {
                 </div>
                 <button type="submit" className="btn btn-primary">Iniciar sesión</button>
             </form>
+            {loggedIn && (
+                <div>
+                    <p>Inicio de sesión exitoso. Redirigiendo...</p>
+                    {/* Redirigir a la página de inicio */}
+                    <Link to="/home">Ir a la página de inicio</Link>
+                </div>
+            )}
         </div>
-    );
-};
+    )
+}
 
-export default Login;
+export default Login
